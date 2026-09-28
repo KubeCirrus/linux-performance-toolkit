@@ -1,7 +1,0 @@
-Linux Performance Diagnostic
-============================
-Hostname : cloud-badger
-Date     : Mon Sep 28 20:51:00 IST 2026
-Kernel   : 6.18.33.2-microsoft-standard-WSL2
-Output   : ./perf-debug-cloud-badger-20260928-205100
-

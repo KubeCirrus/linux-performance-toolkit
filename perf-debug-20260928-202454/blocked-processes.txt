@@ -1,2 +1,0 @@
-===== D STATE PROCESSES =====
-   5471    5377 root     D+   folio_wait_bit_common            [awk]

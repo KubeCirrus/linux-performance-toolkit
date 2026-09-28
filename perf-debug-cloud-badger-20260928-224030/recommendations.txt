@@ -1,0 +1,3 @@
+→ CPU is spending significant time waiting for I/O. Investigate storage with: b-script2.sh --disk --details
+→ Filesystem /snap/bare/5 is above 95%. Free space or investigate large files with: b-script2.sh --disk --details
+→ Network packet drops detected. Investigate NIC, driver, queue and network congestion with: b-script2.sh --network --details

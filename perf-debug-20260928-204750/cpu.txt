@@ -1,0 +1,86 @@
+===== CPU =====
+Architecture:                            x86_64
+CPU op-mode(s):                          32-bit, 64-bit
+Address sizes:                           39 bits physical, 48 bits virtual
+Byte Order:                              Little Endian
+CPU(s):                                  24
+On-line CPU(s) list:                     0-23
+Vendor ID:                               GenuineIntel
+Model name:                              13th Gen Intel(R) Core(TM) i7-13700HX
+CPU family:                              6
+Model:                                   191
+Thread(s) per core:                      2
+Core(s) per socket:                      12
+Socket(s):                               1
+Stepping:                                2
+BogoMIPS:                                4608.00
+Flags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid tsc_known_freq pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves avx_vnni vnmi umip waitpkg gfni vaes vpclmulqdq rdpid movdiri movdir64b fsrm md_clear serialize ibt flush_l1d arch_capabilities
+Virtualization:                          VT-x
+Hypervisor vendor:                       Microsoft
+Virtualization type:                     full
+L1d cache:                               576 KiB (12 instances)
+L1i cache:                               384 KiB (12 instances)
+L2 cache:                                15 MiB (12 instances)
+L3 cache:                                30 MiB (1 instance)
+NUMA node(s):                            1
+NUMA node0 CPU(s):                       0-23
+Vulnerability Gather data sampling:      Not affected
+Vulnerability Ghostwrite:                Not affected
+Vulnerability Indirect target selection: Not affected
+Vulnerability Itlb multihit:             Not affected
+Vulnerability L1tf:                      Not affected
+Vulnerability Mds:                       Not affected
+Vulnerability Meltdown:                  Not affected
+Vulnerability Mmio stale data:           Not affected
+Vulnerability Old microcode:             Not affected
+Vulnerability Reg file data sampling:    Mitigation; Clear Register File
+Vulnerability Retbleed:                  Mitigation; Enhanced IBRS
+Vulnerability Spec rstack overflow:      Not affected
+Vulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl
+Vulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+Vulnerability Spectre v2:                Mitigation; Enhanced / Automatic IBRS; IBPB conditional; PBRSB-eIBRS SW sequence; BHI BHI_DIS_S
+Vulnerability Srbds:                     Not affected
+Vulnerability Tsa:                       Not affected
+Vulnerability Tsx async abort:           Not affected
+Vulnerability Vmscape:                   Not affected
+
+top - 20:47:50 up 41 min,  1 user,  load average: 0.07, 0.04, 0.00
+Tasks:  72 total,   1 running,  71 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.3 us,  0.0 sy,  0.0 ni, 99.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :   7797.7 total,   5840.0 free,    703.8 used,   1253.9 buff/cache
+MiB Swap:   2048.0 total,   2048.0 free,      0.0 used.   6937.4 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+    938 root      20   0   44196  37684  10004 S   6.7   0.5   0:14.52 python3
+      1 root      20   0  165992  11736   8520 S   0.0   0.1   0:24.62 systemd
+      2 root      20   0    3180   2204   2072 S   0.0   0.0   0:00.00 init-systemd(Ub
+      6 root      20   0    3180   2044   1940 S   0.0   0.0   0:00.00 init
+     36 root      19  -1   31424  12228  11124 S   0.0   0.2   0:00.12 systemd-journal
+     57 root      20   0   23112   6212   4804 S   0.0   0.1   0:00.11 systemd-udevd
+     69 root      20   0  153000   1748   1496 S   0.0   0.0   0:00.00 snapfuse
+     70 root      20   0  153000   1744   1504 S   0.0   0.0   0:00.00 snapfuse
+     75 root      20   0  153132   1796   1528 S   0.0   0.0   0:00.00 snapfuse
+     82 root      20   0  153000   1764   1524 S   0.0   0.0   0:00.00 snapfuse
+     88 root      20   0  153000   1812   1492 S   0.0   0.0   0:00.00 snapfuse
+     93 root      20   0  153000   1780   1540 S   0.0   0.0   0:00.00 snapfuse
+    101 root      20   0  302528  11084   1548 S   0.0   0.1   0:00.59 snapfuse
+    106 root      20   0  153000   1744   1508 S   0.0   0.0   0:00.00 snapfuse
+    113 root      20   0  153132   1740   1488 S   0.0   0.0   0:00.00 snapfuse
+    114 root      20   0  153132   1848   1528 S   0.0   0.0   0:00.00 snapfuse
+    125 root      20   0  153132   1784   1528 S   0.0   0.0   0:00.00 snapfuse
+    131 root      20   0  153000   1756   1516 S   0.0   0.0   0:00.00 snapfuse
+    135 root      20   0  227764   6008   1532 S   0.0   0.1   0:00.09 snapfuse
+    142 root      20   0  153000   1716   1472 S   0.0   0.0   0:00.00 snapfuse
+    147 root      20   0  302528   9704   1532 S   0.0   0.1   0:00.75 snapfuse
+    218 systemd+  20   0   26216  14400   9372 S   0.0   0.2   0:00.08 systemd-resolve
+    246 root      20   0    4316   2824   2564 S   0.0   0.0   0:00.01 cron
+    248 message+  20   0    8604   4848   4204 S   0.0   0.1   0:00.03 dbus-daemon
+    252 root      20   0   30220  19960  10684 S   0.0   0.2   0:00.07 networkd-dispat
+    253 syslog    20   0  222412   5952   4584 S   0.0   0.1   0:00.03 rsyslogd
+    255 root      20   0 1917740  35120  20888 S   0.0   0.4   0:00.79 snapd
+    256 root      20   0   15344   7692   6724 S   0.0   0.1   0:00.05 systemd-logind
+    326 ollama    20   0   26.6g  48332  26644 S   0.0   0.6   0:00.77 ollama
+    327 root      20   0    4792   3536   3256 S   0.0   0.0   0:00.04 subiquity-serve
+    336 root      20   0  107188  22236  13896 S   0.0   0.3   0:00.05 unattended-upgr
+    342 root      20   0 2170572  42020  27668 S   0.0   0.5   0:03.66 containerd
+    356 root      20   0    3204   2228   2092 S   0.0   0.0   0:00.00 agetty

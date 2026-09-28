@@ -1,0 +1,2 @@
+NAME     TYPE      SIZE USED PRIO
+/dev/sdc partition   2G   0B   -2

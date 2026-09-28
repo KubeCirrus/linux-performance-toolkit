@@ -1,0 +1,139 @@
+Command: 
+        echo "===== FILESYSTEMS ====="
+        df -hP
+
+        echo
+        echo "===== INODES ====="
+        df -iP
+
+        echo
+        echo "===== BLOCK DEVICES ====="
+        lsblk -o NAME,KNAME,TYPE,SIZE,FSTYPE,MOUNTPOINTS 2>/dev/null || true
+
+        echo
+        echo "===== DISK STATISTICS ====="
+        cat /proc/diskstats
+
+        echo
+        echo "===== VMSTAT ====="
+        vmstat 1 10 2>/dev/null || true
+    
+Date: Mon Sep 28 22:40:49 IST 2026
+--------------------------------------------
+===== FILESYSTEMS =====
+Filesystem      Size  Used Avail Use% Mounted on
+none            3.9G     0  3.9G   0% /usr/lib/modules/6.18.33.2-microsoft-standard-WSL2
+none            3.9G  4.0K  3.9G   1% /mnt/wsl
+drivers         953G  351G  602G  37% /usr/lib/wsl/drivers
+/dev/sdd       1007G   34G  923G   4% /
+none            3.9G   48K  3.9G   1% /mnt/wslg
+none            3.9G     0  3.9G   0% /usr/lib/wsl/lib
+rootfs          3.9G  2.8M  3.8G   1% /init
+none            3.9G  988K  3.9G   1% /run
+none            3.9G     0  3.9G   0% /run/lock
+none            3.9G     0  3.9G   0% /run/shm
+none            3.9G   80K  3.9G   1% /mnt/wslg/versions.txt
+none            3.9G   80K  3.9G   1% /mnt/wslg/doc
+C:\             953G  351G  602G  37% /mnt/c
+snapfuse        128K  128K     0 100% /snap/bare/5
+snapfuse         31M   31M     0 100% /snap/bun-js/73
+snapfuse         31M   31M     0 100% /snap/bun-js/87
+snapfuse         64M   64M     0 100% /snap/core20/2582
+snapfuse         64M   64M     0 100% /snap/core20/2599
+snapfuse         74M   74M     0 100% /snap/core22/2010
+snapfuse         74M   74M     0 100% /snap/core22/2045
+snapfuse         67M   67M     0 100% /snap/core24/1349
+snapfuse         92M   92M     0 100% /snap/gtk-common-themes/1535
+snapfuse         67M   67M     0 100% /snap/core24/1643
+snapfuse        8.3M  8.3M     0 100% /snap/kubectx/48
+snapfuse         51M   51M     0 100% /snap/snapd/24505
+snapfuse         51M   51M     0 100% /snap/snapd/24718
+snapfuse        132M  132M     0 100% /snap/ubuntu-desktop-installer/1276
+snapfuse        132M  132M     0 100% /snap/ubuntu-desktop-installer/1286
+tmpfs           780M  8.0K  780M   1% /run/user/0
+
+===== INODES =====
+Filesystem       Inodes   IUsed    IFree IUse% Mounted on
+none             998102       5   998097    1% /usr/lib/modules/6.18.33.2-microsoft-standard-WSL2
+none             998102       2   998100    1% /mnt/wsl
+drivers             999 -999001  1000000     - /usr/lib/wsl/drivers
+/dev/sdd       67108864  349826 66759038    1% /
+none             998102      23   998079    1% /mnt/wslg
+none             998102       6   998096    1% /usr/lib/wsl/lib
+rootfs           996662      12   996650    1% /init
+none             998102     631   997471    1% /run
+none             998102       2   998100    1% /run/lock
+none             998102       1   998101    1% /run/shm
+none             998102      52   998050    1% /mnt/wslg/versions.txt
+none             998102      52   998050    1% /mnt/wslg/doc
+C:\                 999 -999001  1000000     - /mnt/c
+snapfuse             29      29        0  100% /snap/bare/5
+snapfuse             10      10        0  100% /snap/bun-js/73
+snapfuse             10      10        0  100% /snap/bun-js/87
+snapfuse          11901   11901        0  100% /snap/core20/2582
+snapfuse          11901   11901        0  100% /snap/core20/2599
+snapfuse          14261   14261        0  100% /snap/core22/2010
+snapfuse          14263   14263        0  100% /snap/core22/2045
+snapfuse          10642   10642        0  100% /snap/core24/1349
+snapfuse          76208   76208        0  100% /snap/gtk-common-themes/1535
+snapfuse          10545   10545        0  100% /snap/core24/1643
+snapfuse              8       8        0  100% /snap/kubectx/48
+snapfuse            608     608        0  100% /snap/snapd/24505
+snapfuse            608     608        0  100% /snap/snapd/24718
+snapfuse           8605    8605        0  100% /snap/ubuntu-desktop-installer/1276
+snapfuse           8574    8574        0  100% /snap/ubuntu-desktop-installer/1286
+tmpfs            199620      33   199587    1% /run/user/0
+
+===== BLOCK DEVICES =====
+NAME KNAME TYPE   SIZE FSTYPE MOUNTPOINTS
+sda  sda   disk 356.9M ext4   
+sdb  sdb   disk 159.4M ext4   
+sdc  sdc   disk     2G swap   [SWAP]
+sdd  sdd   disk     1T ext4   /var/lib/docker
+                              /snap
+                              /mnt/wslg/distro
+                              /
+
+===== DISK STATISTICS =====
+   1       0 ram0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   1       1 ram1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   1       2 ram2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   1       3 ram3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   1       4 ram4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   1       5 ram5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   1       6 ram6 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   1       7 ram7 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   1       8 ram8 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   1       9 ram9 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   1      10 ram10 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   1      11 ram11 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   1      12 ram12 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   1      13 ram13 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   1      14 ram14 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   1      15 ram15 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   7       0 loop0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   7       1 loop1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   7       2 loop2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   7       3 loop3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   7       4 loop4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   7       5 loop5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   7       6 loop6 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   7       7 loop7 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   8      16 sdb 171 131 28898 137 0 0 0 0 0 112 137 0 0 0 0 0 0
+   8       0 sda 750 440 319706 291 0 0 0 0 0 264 291 0 0 0 0 0 0
+   8      32 sdc 101 0 4736 6 2 0 8 1 0 8 8 0 0 0 0 1 0
+   8      48 sdd 9500 8983 3860234 91926 5508 5085 1192768 33846 0 10912 126274 237 25 2222392 47 1390 454
+
+===== VMSTAT =====
+procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+ 0  0      0 6913332   1296 337128    0    0     9     3   18   13  0  0 100  0  0
+ 0  0      0 6912900   1296 337428    0    0     0     0  475  284  0  0 100  0  0
+ 0  0      0 6913272   1296 337428    0    0     0     0  356  253  0  0 100  0  0
+ 0  0      0 6913800   1296 337428    0    0     0     0  409  302  0  0 100  0  0
+ 0  0      0 6914116   1296 337428    0    0     0     0  396  262  0  0 100  0  0
+ 0  0      0 6914460   1296 337428    0    0     0     0  377  264  0  0 100  0  0
+ 0  0      0 6914428   1304 337428    0    0     0    28  369  265  0  0 100  0  0
+ 0  0      0 6912684   1304 337428    0    0     0     0  461  358  0  0 100  0  0
+ 0  0      0 6913044   1304 337428    0    0     0     0  497  342  0  0 100  0  0
+ 0  0      0 6912892   1304 337428    0    0     0    32  390  282  0  0 100  0  0

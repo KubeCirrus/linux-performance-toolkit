@@ -1,0 +1,685 @@
+b-scriptc2.sh v1.0.0 | host=cloud-badger | 2026-09-28T20:28:37+05:30 | sample=5s | euid=0
+
+################ SYSTEM ################
+
+$ uname -a
+Linux cloud-badger 6.18.33.2-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Thu Jun 18 21:54:43 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
+
+$ cat /etc/os-release
+PRETTY_NAME="Ubuntu 22.04.3 LTS"
+NAME="Ubuntu"
+VERSION_ID="22.04"
+VERSION="22.04.3 LTS (Jammy Jellyfish)"
+VERSION_CODENAME=jammy
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=jammy
+
+$ uptime
+ 20:28:37 up 22 min,  1 user,  load average: 0.06, 0.05, 0.00
+CPU cores (logical): 24
+
+$ lscpu
+Architecture:                            x86_64
+CPU op-mode(s):                          32-bit, 64-bit
+Address sizes:                           39 bits physical, 48 bits virtual
+Byte Order:                              Little Endian
+CPU(s):                                  24
+On-line CPU(s) list:                     0-23
+Vendor ID:                               GenuineIntel
+Model name:                              13th Gen Intel(R) Core(TM) i7-13700HX
+CPU family:                              6
+Model:                                   191
+Thread(s) per core:                      2
+Core(s) per socket:                      12
+Socket(s):                               1
+Stepping:                                2
+BogoMIPS:                                4608.00
+Flags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid tsc_known_freq pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves avx_vnni vnmi umip waitpkg gfni vaes vpclmulqdq rdpid movdiri movdir64b fsrm md_clear serialize ibt flush_l1d arch_capabilities
+Virtualization:                          VT-x
+Hypervisor vendor:                       Microsoft
+Virtualization type:                     full
+L1d cache:                               576 KiB (12 instances)
+L1i cache:                               384 KiB (12 instances)
+L2 cache:                                15 MiB (12 instances)
+L3 cache:                                30 MiB (1 instance)
+NUMA node(s):                            1
+NUMA node0 CPU(s):                       0-23
+Vulnerability Gather data sampling:      Not affected
+Vulnerability Ghostwrite:                Not affected
+Vulnerability Indirect target selection: Not affected
+Vulnerability Itlb multihit:             Not affected
+Vulnerability L1tf:                      Not affected
+Vulnerability Mds:                       Not affected
+Vulnerability Meltdown:                  Not affected
+Vulnerability Mmio stale data:           Not affected
+Vulnerability Old microcode:             Not affected
+Vulnerability Reg file data sampling:    Mitigation; Clear Register File
+Vulnerability Retbleed:                  Mitigation; Enhanced IBRS
+Vulnerability Spec rstack overflow:      Not affected
+Vulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl
+Vulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+Vulnerability Spectre v2:                Mitigation; Enhanced / Automatic IBRS; IBPB conditional; PBRSB-eIBRS SW sequence; BHI BHI_DIS_S
+Vulnerability Srbds:                     Not affected
+Vulnerability Tsa:                       Not affected
+Vulnerability Tsx async abort:           Not affected
+Vulnerability Vmscape:                   Not affected
+
+$ systemd-detect-virt
+wsl
+
+Governor(cpu0): n/a
+
+################ LOAD ################
+Load average: 0.06 0.05 0.00   cores: 24
+
+################ LIVE SAMPLING (5s) ################
+Sampling for 5s, please wait...
+
+--- vmstat ---
+procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+ 4  0      0 5974968  12632 1269760    0    0    60     1   29   22  0  0 100  0  0
+ 2  0      0 5974772  12632 1269888    0    0    36     0  633  455  0  0 100  0  0
+ 2  0      0 5976248  12632 1269888    0    0     0     0  397  272  0  0 100  0  0
+ 1  2      0 5976816  12636 1269888    0    0     0    88  349  254  0  0 100  0  0
+ 0  0      0 5978236  12640 1269892    0    0     0     4  437  368  0  0 100  0  0
+
+--- mpstat ---
+Linux 6.18.33.2-microsoft-standard-WSL2 (cloud-badger) 	09/28/26 	_x86_64_	(24 CPU)
+
+20:28:37     CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+20:28:38     all    0.08    0.00    0.25    0.00    0.00    0.08    0.00    0.00    0.00   99.58
+20:28:38       0    0.00    0.00    0.97    0.00    0.00    1.94    0.00    0.00    0.00   97.09
+20:28:38       1    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:38       2    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:38       3    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:38       4    0.00    0.00    0.99    0.00    0.00    0.00    0.00    0.00    0.00   99.01
+20:28:38       5    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:38       6    0.00    0.00    0.99    0.00    0.00    0.00    0.00    0.00    0.00   99.01
+20:28:38       7    1.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00   99.00
+20:28:38       8    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:38       9    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:38      10    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:38      11    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:38      12    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:38      13    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:38      14    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:38      15    0.00    0.00    0.99    0.00    0.00    0.00    0.00    0.00    0.00   99.01
+20:28:38      16    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:38      17    0.00    0.00    0.99    0.00    0.00    0.00    0.00    0.00    0.00   99.01
+20:28:38      18    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:38      19    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:38      20    1.00    0.00    1.00    0.00    0.00    0.00    0.00    0.00    0.00   98.00
+20:28:38      21    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:38      22    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:38      23    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+
+20:28:38     CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+20:28:39     all    0.08    0.00    0.04    0.00    0.00    0.00    0.00    0.00    0.00   99.87
+20:28:39       0    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:39       1    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:39       2    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:39       3    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:39       4    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:39       5    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:39       6    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:39       7    1.98    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00   98.02
+20:28:39       8    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:39       9    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:39      10    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:39      11    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:39      12    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:39      13    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:39      14    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:39      15    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:39      16    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:39      17    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:39      18    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:39      19    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:39      20    0.00    0.00    1.01    0.00    0.00    0.00    0.00    0.00    0.00   98.99
+20:28:39      21    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:39      22    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:39      23    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+
+20:28:39     CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+20:28:40     all    0.13    0.00    0.04    0.00    0.00    0.00    0.00    0.00    0.00   99.83
+20:28:40       0    1.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00   99.00
+20:28:40       1    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:40       2    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:40       3    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:40       4    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:40       5    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:40       6    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:40       7    1.01    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00   98.99
+20:28:40       8    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:40       9    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:40      10    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:40      11    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:40      12    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:40      13    0.99    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00   99.01
+20:28:40      14    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:40      15    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:40      16    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:40      17    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:40      18    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:40      19    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:40      20    0.00    0.00    1.01    0.00    0.00    0.00    0.00    0.00    0.00   98.99
+20:28:40      21    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:40      22    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:40      23    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+
+20:28:40     CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+20:28:41     all    0.04    0.00    0.12    0.12    0.00    0.00    0.00    0.00    0.00   99.71
+20:28:41       0    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:41       1    0.00    0.00    1.98    0.00    0.00    0.00    0.00    0.00    0.00   98.02
+20:28:41       2    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:41       3    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:41       4    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:41       5    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:41       6    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:41       7    0.99    0.00    0.99    0.99    0.00    0.00    0.00    0.00    0.00   97.03
+20:28:41       8    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:41       9    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:41      10    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:41      11    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:41      12    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:41      13    0.00    0.00    0.00    1.01    0.00    0.00    0.00    0.00    0.00   98.99
+20:28:41      14    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:41      15    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:41      16    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:41      17    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:41      18    0.00    0.00    0.00    1.01    0.00    0.00    0.00    0.00    0.00   98.99
+20:28:41      19    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:41      20    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:41      21    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:41      22    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:41      23    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+
+20:28:41     CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+20:28:42     all    0.04    0.00    0.17    0.00    0.00    0.00    0.00    0.00    0.00   99.79
+20:28:42       0    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:42       1    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:42       2    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:42       3    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:42       4    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:42       5    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:42       6    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:42       7    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:42       8    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:42       9    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:42      10    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:42      11    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:42      12    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:42      13    0.00    0.00    0.99    0.00    0.00    0.00    0.00    0.00    0.00   99.01
+20:28:42      14    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:42      15    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:42      16    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:42      17    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:42      18    0.99    0.00    0.99    0.00    0.00    0.00    0.00    0.00    0.00   98.02
+20:28:42      19    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:42      20    0.00    0.00    2.00    0.00    0.00    0.00    0.00    0.00    0.00   98.00
+20:28:42      21    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:42      22    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+20:28:42      23    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+
+Average:     CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+Average:     all    0.08    0.00    0.13    0.03    0.00    0.02    0.00    0.00    0.00   99.76
+Average:       0    0.20    0.00    0.20    0.00    0.00    0.40    0.00    0.00    0.00   99.20
+Average:       1    0.00    0.00    0.40    0.00    0.00    0.00    0.00    0.00    0.00   99.60
+Average:       2    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+Average:       3    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+Average:       4    0.00    0.00    0.20    0.00    0.00    0.00    0.00    0.00    0.00   99.80
+Average:       5    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+Average:       6    0.00    0.00    0.20    0.00    0.00    0.00    0.00    0.00    0.00   99.80
+Average:       7    1.00    0.00    0.20    0.20    0.00    0.00    0.00    0.00    0.00   98.60
+Average:       8    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+Average:       9    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+Average:      10    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+Average:      11    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+Average:      12    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+Average:      13    0.20    0.00    0.20    0.20    0.00    0.00    0.00    0.00    0.00   99.40
+Average:      14    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+Average:      15    0.00    0.00    0.20    0.00    0.00    0.00    0.00    0.00    0.00   99.80
+Average:      16    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+Average:      17    0.00    0.00    0.20    0.00    0.00    0.00    0.00    0.00    0.00   99.80
+Average:      18    0.20    0.00    0.20    0.20    0.00    0.00    0.00    0.00    0.00   99.40
+Average:      19    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+Average:      20    0.20    0.00    1.00    0.00    0.00    0.00    0.00    0.00    0.00   98.80
+Average:      21    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+Average:      22    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+Average:      23    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+
+--- iostat ---
+Linux 6.18.33.2-microsoft-standard-WSL2 (cloud-badger) 	09/28/26 	_x86_64_	(24 CPU)
+
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.09    0.00    0.11    0.05    0.00   99.74
+
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+sda              0.56    119.94     0.33  37.01    0.37   213.42    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.02
+sdb              0.13     10.84     0.10  43.38    0.80    84.50    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.01
+sdc              0.08      1.77     0.00   0.00    0.05    23.64    0.00      0.00     0.00   0.00    0.50     2.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+sdd              6.28   1315.98     5.01  44.36   10.62   209.61    1.92     21.74     2.22  53.60    3.31    11.31    0.07     19.61     0.00   6.19    0.18   287.21    0.36    0.28    0.07   0.54
+
+
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.08    0.00    0.25    0.00    0.00   99.67
+
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+sdd              2.00     36.00     0.00   0.00    0.00    18.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+
+
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.13    0.00    0.04    0.00    0.00   99.83
+
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+
+
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.08    0.00    0.08    0.00    0.00   99.83
+
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+
+
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.04    0.00    0.17    0.13    0.00   99.67
+
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+sdd              0.00      0.00     0.00   0.00    0.00     0.00    2.00     92.00     0.00   0.00    7.50    46.00    2.00     80.00     0.00   0.00    0.50    40.00    2.00    1.00    0.02   1.60
+
+
+
+--- pidstat ---
+Linux 6.18.33.2-microsoft-standard-WSL2 (cloud-badger) 	09/28/26 	_x86_64_	(24 CPU)
+
+20:28:37      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+20:28:38        0         1    1.00    0.00    0.00    0.00    1.00     7  systemd
+20:28:38      999       326    1.00    2.00    0.00    0.00    3.00    14  ollama
+
+20:28:37      UID       PID  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+20:28:38      999       326      3.00      0.00 27845076   47136   0.59  ollama
+20:28:38        0      6702     85.00      0.00    5320    2404   0.03  bash
+20:28:38        0      6722      1.00      0.00    2820    1872   0.02  mpstat
+20:28:38        0      6723      1.00      0.00    2848    1684   0.02  iostat
+20:28:38        0      6724      2.00      0.00    3492    2576   0.03  pidstat
+20:28:38        0      6729     84.00      1.00    2800    1596   0.02  sleep
+
+20:28:37      UID       PID   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+20:28:38        0      6729     36.00      0.00      0.00       0  sleep
+
+20:28:38      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+20:28:39        0         1    1.00    0.00    0.00    0.00    1.00     7  systemd
+20:28:39        0       938    1.00    0.00    0.00    0.00    1.00    18  python3
+
+20:28:38      UID       PID  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+
+20:28:38      UID       PID   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+20:28:39        0      6722      0.00      4.00      0.00       0  mpstat
+
+20:28:39      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+20:28:40        0         1    1.00    0.00    0.00    0.00    1.00     7  systemd
+20:28:40        0       342    0.00    1.00    0.00    0.00    1.00     6  containerd
+20:28:40        0       938    0.00    1.00    0.00    0.00    1.00    18  python3
+
+20:28:39      UID       PID  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+
+20:28:39      UID       PID   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+
+20:28:40      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+20:28:41        0         1    0.00    1.00    0.00    0.00    1.00     7  systemd
+20:28:41        0       428    0.00    1.00    0.00    0.00    1.00    16  dockerd
+20:28:41        0      6724    0.00    1.00    0.00    0.00    1.00    13  pidstat
+
+20:28:40      UID       PID  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+20:28:41        0      6702      2.00      0.00    5320    2404   0.03  bash
+
+20:28:40      UID       PID   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+20:28:41        0      6702      0.00      4.00      0.00       0  bash
+20:28:41        0      6722      0.00      4.00      0.00       0  mpstat
+
+20:28:41      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+20:28:42        0         1    1.00    0.00    0.00    0.00    1.00     7  systemd
+20:28:42        0       938    1.00    0.00    0.00    0.00    1.00    18  python3
+
+20:28:41      UID       PID  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+20:28:42        0      6702     18.00      0.00    5320    2404   0.03  bash
+
+20:28:41      UID       PID   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+20:28:42        0      6702     36.00     20.00      0.00       0  bash
+
+Average:      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+Average:        0         1    0.80    0.20    0.00    0.00    1.00     -  systemd
+Average:      999       326    0.20    0.40    0.00    0.00    0.60     -  ollama
+Average:        0       342    0.00    0.20    0.00    0.00    0.20     -  containerd
+Average:        0       428    0.00    0.20    0.00    0.00    0.20     -  dockerd
+Average:        0       938    0.40    0.20    0.00    0.00    0.60     -  python3
+Average:        0      6724    0.00    0.20    0.00    0.00    0.20     -  pidstat
+
+Average:      UID       PID  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+Average:      999       326      0.60      0.00 27845076   47136   0.59  ollama
+Average:        0      6702     21.00      0.00    5320    2404   0.03  bash
+Average:        0      6724      0.40      0.00    3492    2576   0.03  pidstat
+
+Average:      UID       PID   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+Average:        0      6702      7.20      4.80      0.00       0  bash
+
+CPU over sample window: user=0% sys=0% iowait=0% irq/softirq=0% steal=0% idle=99%
+Swap activity: 0 pages/s (in+out), major page faults: 0/s
+
+################ MEMORY ################
+
+$ free -h
+               total        used        free      shared  buff/cache   available
+Mem:           7.6Gi       708Mi       5.7Gi       3.0Mi       1.2Gi       6.8Gi
+Swap:          2.0Gi          0B       2.0Gi
+
+$ grep -E 'MemTotal|MemFree|MemAvailable|Buffers|^Cached|SwapTotal|SwapFree|Dirty|Writeback|Slab|AnonHugePages|HugePages_Total' /proc/meminfo
+MemTotal:        7984816 kB
+MemFree:         5976992 kB
+MemAvailable:    7099380 kB
+Buffers:           12640 kB
+Cached:          1237256 kB
+SwapTotal:       2097152 kB
+SwapFree:        2097152 kB
+Dirty:               180 kB
+Writeback:             0 kB
+Slab:             127428 kB
+WritebackTmp:          0 kB
+AnonHugePages:         0 kB
+HugePages_Total:       0
+
+$ ps -eo pid,user,rss,vsz,pmem,comm --sort=-rss | head -n 11
+    PID USER       RSS    VSZ %MEM COMMAND
+    413 root     108496 2385080  1.3 python3.10
+    419 mysql    85012 1272940  1.0 mariadbd
+    428 root     79360 2500972  0.9 dockerd
+    326 ollama   48328 27845076  0.6 ollama
+    342 root     42060 2170572  0.5 containerd
+    938 root     37684  44196  0.4 python3
+    255 root     35124 1917740  0.4 snapd
+    336 root     22236 107188  0.2 unattended-upgr
+    252 root     19960  30220  0.2 networkd-dispat
+    218 systemd+ 14400  26216  0.1 systemd-resolve
+
+$ swapon --show
+NAME     TYPE      SIZE USED PRIO
+/dev/sdc partition   2G   0B   -2
+Available memory: 88% of total
+Swap used: 0%
+
+################ PRESSURE STALL INFORMATION (PSI) ################
+cpu:   some avg10=0.00 avg60=0.00 avg300=0.00 total=803287 full avg10=0.00 avg60=0.00 avg300=0.00 total=0 
+memory:some avg10=0.00 avg60=0.00 avg300=0.00 total=0 full avg10=0.00 avg60=0.00 avg300=0.00 total=0 
+io:    some avg10=0.00 avg60=0.00 avg300=0.00 total=2293971 full avg10=0.00 avg60=0.00 avg300=0.00 total=2274606 
+
+################ DISK ################
+
+$ df -PhT -x tmpfs -x devtmpfs -x squashfs -x overlay
+Filesystem     Type           Size  Used Avail Use% Mounted on
+drivers        9p             953G  349G  605G  37% /usr/lib/wsl/drivers
+/dev/sdd       ext4          1007G   34G  923G   4% /
+rootfs         rootfs         3.9G  2.8M  3.8G   1% /init
+C:\            9p             953G  349G  605G  37% /mnt/c
+snapfuse       fuse.snapfuse  128K  128K     0 100% /snap/bare/5
+snapfuse       fuse.snapfuse   31M   31M     0 100% /snap/bun-js/73
+snapfuse       fuse.snapfuse   31M   31M     0 100% /snap/bun-js/87
+snapfuse       fuse.snapfuse   64M   64M     0 100% /snap/core20/2582
+snapfuse       fuse.snapfuse   64M   64M     0 100% /snap/core20/2599
+snapfuse       fuse.snapfuse   74M   74M     0 100% /snap/core22/2010
+snapfuse       fuse.snapfuse   74M   74M     0 100% /snap/core22/2045
+snapfuse       fuse.snapfuse   67M   67M     0 100% /snap/core24/1349
+snapfuse       fuse.snapfuse   92M   92M     0 100% /snap/gtk-common-themes/1535
+snapfuse       fuse.snapfuse   67M   67M     0 100% /snap/core24/1643
+snapfuse       fuse.snapfuse  8.3M  8.3M     0 100% /snap/kubectx/48
+snapfuse       fuse.snapfuse   51M   51M     0 100% /snap/snapd/24505
+snapfuse       fuse.snapfuse   51M   51M     0 100% /snap/snapd/24718
+snapfuse       fuse.snapfuse  132M  132M     0 100% /snap/ubuntu-desktop-installer/1276
+snapfuse       fuse.snapfuse  132M  132M     0 100% /snap/ubuntu-desktop-installer/1286
+
+$ df -PiT -x tmpfs -x devtmpfs -x squashfs -x overlay
+Filesystem     Type            Inodes   IUsed    IFree IUse% Mounted on
+drivers        9p                 999 -999001  1000000     - /usr/lib/wsl/drivers
+/dev/sdd       ext4          67108864  349627 66759237    1% /
+rootfs         rootfs          996662      12   996650    1% /init
+C:\            9p                 999 -999001  1000000     - /mnt/c
+snapfuse       fuse.snapfuse       29      29        0  100% /snap/bare/5
+snapfuse       fuse.snapfuse       10      10        0  100% /snap/bun-js/73
+snapfuse       fuse.snapfuse       10      10        0  100% /snap/bun-js/87
+snapfuse       fuse.snapfuse    11901   11901        0  100% /snap/core20/2582
+snapfuse       fuse.snapfuse    11901   11901        0  100% /snap/core20/2599
+snapfuse       fuse.snapfuse    14261   14261        0  100% /snap/core22/2010
+snapfuse       fuse.snapfuse    14263   14263        0  100% /snap/core22/2045
+snapfuse       fuse.snapfuse    10642   10642        0  100% /snap/core24/1349
+snapfuse       fuse.snapfuse    76208   76208        0  100% /snap/gtk-common-themes/1535
+snapfuse       fuse.snapfuse    10545   10545        0  100% /snap/core24/1643
+snapfuse       fuse.snapfuse        8       8        0  100% /snap/kubectx/48
+snapfuse       fuse.snapfuse      608     608        0  100% /snap/snapd/24505
+snapfuse       fuse.snapfuse      608     608        0  100% /snap/snapd/24718
+snapfuse       fuse.snapfuse     8605    8605        0  100% /snap/ubuntu-desktop-installer/1276
+snapfuse       fuse.snapfuse     8574    8574        0  100% /snap/ubuntu-desktop-installer/1286
+
+$ lsblk -o NAME,SIZE,TYPE,ROTA,MOUNTPOINT
+NAME   SIZE TYPE ROTA MOUNTPOINT
+sda  356.9M disk    1 
+sdb  159.4M disk    1 
+sdc      2G disk    1 [SWAP]
+sdd      1T disk    1 /mnt/wslg/distro
+
+$ cat /sys/block/*/queue/scheduler 2>/dev/null | head -n 5
+[none] mq-deadline kyber 
+[none] mq-deadline kyber 
+[none] mq-deadline kyber 
+[none] mq-deadline kyber 
+[none] mq-deadline kyber 
+
+Processes in D state (uninterruptible sleep):
+(none)
+
+################ NETWORK ################
+
+$ ss -s
+Total: 255
+TCP:   8 (estab 0, closed 0, orphaned 0, timewait 0)
+
+Transport Total     IP        IPv6
+RAW	  0         0         0        
+UDP	  4         3         1        
+TCP	  8         7         1        
+INET	  12        10        2        
+FRAG	  0         0         0        
+
+
+$ ss -tan state established | wc -l
+1
+
+$ ss -lnt | head -n 11
+State  Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+LISTEN 0      4096    127.0.0.53%lo:53         0.0.0.0:*          
+LISTEN 0      511           0.0.0.0:80         0.0.0.0:*          
+LISTEN 0      511           0.0.0.0:81         0.0.0.0:*          
+LISTEN 0      80          127.0.0.1:3306       0.0.0.0:*          
+LISTEN 0      4096        127.0.0.1:11434      0.0.0.0:*          
+LISTEN 0      1000   10.255.255.254:53         0.0.0.0:*          
+LISTEN 0      4096        127.0.0.1:38381      0.0.0.0:*          
+LISTEN 0      511              [::]:80            [::]:*          
+
+$ ip -s link
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    RX:  bytes packets errors dropped  missed   mcast           
+          3043      28      0       0       0       0 
+    TX:  bytes packets errors dropped carrier collsns           
+          3043      28      0       0       0       0 
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP mode DEFAULT group default qlen 1000
+    link/ether 00:15:5d:0f:56:8a brd ff:ff:ff:ff:ff:ff
+    RX:  bytes packets errors dropped  missed   mcast           
+        336362     384      0       0       0      82 
+    TX:  bytes packets errors dropped carrier collsns           
+         54463     208      0       0       0       0 
+3: br-25ecf719c824: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN mode DEFAULT group default 
+    link/ether d6:ef:f3:06:02:b5 brd ff:ff:ff:ff:ff:ff
+    RX:  bytes packets errors dropped  missed   mcast           
+             0       0      0       0       0       0 
+    TX:  bytes packets errors dropped carrier collsns           
+             0       0      0       2       0       0 
+4: docker0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN mode DEFAULT group default 
+    link/ether aa:96:e7:e4:c7:ef brd ff:ff:ff:ff:ff:ff
+    RX:  bytes packets errors dropped  missed   mcast           
+             0       0      0       0       0       0 
+    TX:  bytes packets errors dropped carrier collsns           
+             0       0      0       2       0       0 
+5: br-7ebaee5e8353: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN mode DEFAULT group default 
+    link/ether fe:04:e6:38:a4:a7 brd ff:ff:ff:ff:ff:ff
+    RX:  bytes packets errors dropped  missed   mcast           
+             0       0      0       0       0       0 
+    TX:  bytes packets errors dropped carrier collsns           
+             0       0      0       2       0       0 
+TCP retransmit ratio since boot: 2.12%
+
+################ PROCESSES ################
+(Note: ps %CPU is a lifetime average; the pidstat sample above shows current usage.)
+
+$ ps -eo pid,ppid,user,stat,pcpu,pmem,rss,nlwp,etime,comm --sort=-pcpu | head -n 11
+    PID    PPID USER     STAT %CPU %MEM   RSS NLWP     ELAPSED COMMAND
+      1       0 root     Ss    0.9  0.1 11736    1       22:16 systemd
+    938     413 root     S     0.5  0.4 37684    1       22:10 python3
+    413     327 root     Sl    0.3  1.3 108496   6       22:14 python3.10
+   6702    6694 root     S+    0.2  0.0  3200    1       00:05 bash
+    342       1 root     Ssl   0.1  0.5 42060   13       22:14 containerd
+      2       1 root     Sl+   0.0  0.0  2204    2       22:16 init-systemd(Ub
+      6       2 root     Sl+   0.0  0.0  2044    2       22:15 init
+     36       1 root     S<s   0.0  0.1 12224    1       22:15 systemd-journal
+     57       1 root     Ss    0.0  0.0  6212    1       22:15 systemd-udevd
+     69       1 root     Ssl   0.0  0.0  1748    3       22:15 snapfuse
+
+$ top -b -n 1 -w 200 | head -n 17
+top - 20:28:42 up 22 min,  1 user,  load average: 0.05, 0.05, 0.00
+Tasks:  75 total,   1 running,  74 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.3 us,  0.3 sy,  0.0 ni, 99.2 id,  0.0 wa,  0.0 hi,  0.3 si,  0.0 st
+MiB Mem :   7797.7 total,   5832.2 free,    712.8 used,   1252.6 buff/cache
+MiB Swap:   2048.0 total,   2048.0 free,      0.0 used.   6928.5 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+      1 root      20   0  165992  11736   8520 S   0.0   0.1   0:13.04 systemd
+      2 root      20   0    3180   2204   2072 S   0.0   0.0   0:00.00 init-systemd(Ub
+      6 root      20   0    3180   2044   1940 S   0.0   0.0   0:00.00 init
+     36 root      19  -1   31424  12224  11120 S   0.0   0.2   0:00.11 systemd-journal
+     57 root      20   0   23112   6212   4804 S   0.0   0.1   0:00.09 systemd-udevd
+     69 root      20   0  153000   1748   1496 S   0.0   0.0   0:00.00 snapfuse
+     70 root      20   0  153000   1744   1504 S   0.0   0.0   0:00.00 snapfuse
+     75 root      20   0  153132   1796   1528 S   0.0   0.0   0:00.00 snapfuse
+     82 root      20   0  153000   1764   1524 S   0.0   0.0   0:00.00 snapfuse
+     88 root      20   0  153000   1812   1492 S   0.0   0.0   0:00.00 snapfuse
+Zombie processes: 0
+System file handles: 1720 / 9223372036854775807
+
+################ CGROUP / CONTAINER LIMITS ################
+
+$ cat /sys/fs/cgroup/cpu.max /sys/fs/cgroup/memory.max /sys/fs/cgroup/memory.current 2>/dev/null
+CPU throttle events (this cgroup): 0
+Thermal throttle events (all cores): 0
+
+################ KERNEL AND SERVICE LOGS ################
+
+$ dmesg -T --level=err,warn | tail -n 40
+[Mon Sep 28 20:06:36 2026] memcpy: detected field-spanning write (size 4) of single field "current_pos" at drivers/hv/dxgkrnl/dxgvmbus.c:3095 (size 0)
+[Mon Sep 28 20:06:36 2026] WARNING: CPU: 2 PID: 711 at drivers/hv/dxgkrnl/dxgvmbus.c:3095 dxgvmb_send_wait_sync_object_gpu+0x271/0x290
+[Mon Sep 28 20:06:36 2026] Modules linked in: tls xt_conntrack xt_MASQUERADE xfrm_user xfrm_algo xt_set ip_set xt_addrtype nft_compat intel_rapl_msr intel_rapl_common kvm_intel kvm irqbypass battery ac sch_fq_codel autofs4 br_netfilter bridge stp llc ip_tables tun
+[Mon Sep 28 20:06:36 2026] CPU: 2 UID: 999 PID: 711 Comm: ollama Not tainted 6.18.33.2-microsoft-standard-WSL2 #1 PREEMPT(none) 
+[Mon Sep 28 20:06:36 2026] RIP: 0010:dxgvmb_send_wait_sync_object_gpu+0x271/0x290
+[Mon Sep 28 20:06:36 2026] Code: a2 fe ff ff b8 ea ff ff ff eb 8d 31 c9 48 c7 c2 98 45 a8 a4 4c 89 ee 48 c7 c7 60 d3 9b a4 c6 05 44 72 6a 01 01 e8 cf a4 25 ff <0f> 0b 4c 8b 85 60 ff ff ff e9 9f fe ff ff e8 fc d3 31 00 66 66 2e
+[Mon Sep 28 20:06:36 2026] RSP: 0018:ffffcc02456f7cb8 EFLAGS: 00010282
+[Mon Sep 28 20:06:36 2026] RAX: 0000000000000000 RBX: ffffcc02454ed038 RCX: 0000000000000027
+[Mon Sep 28 20:06:36 2026] RDX: ffff8a2576c9cd08 RSI: 0000000000000001 RDI: ffff8a2576c9cd00
+[Mon Sep 28 20:06:36 2026] RBP: ffffcc02456f7d70 R08: 0000000000000000 R09: 0000000000000003
+[Mon Sep 28 20:06:36 2026] R10: ffffcc02456f7b28 R11: ffffffffa5553708 R12: 0000000000000001
+[Mon Sep 28 20:06:36 2026] R13: 0000000000000004 R14: 0000000000000008 R15: 0000000000000008
+[Mon Sep 28 20:06:36 2026] FS:  000073126c97c640(0000) GS:ffff8a25d1047000(0000) knlGS:0000000000000000
+[Mon Sep 28 20:06:36 2026] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[Mon Sep 28 20:06:36 2026] CR2: 00007312581ac000 CR3: 000000013e00c004 CR4: 0000000000b72ef0
+[Mon Sep 28 20:06:36 2026] Call Trace:
+[Mon Sep 28 20:06:36 2026]  <TASK>
+[Mon Sep 28 20:06:36 2026]  dxgkio_submit_wait_to_hwqueue+0x133/0x2e0
+[Mon Sep 28 20:06:36 2026]  dxgk_ioctl+0x66/0x110
+[Mon Sep 28 20:06:36 2026]  dxgk_unlocked_ioctl+0x12/0x20
+[Mon Sep 28 20:06:36 2026]  __x64_sys_ioctl+0xa1/0xf0
+[Mon Sep 28 20:06:36 2026]  x64_sys_call+0x102c/0x20f0
+[Mon Sep 28 20:06:36 2026]  do_syscall_64+0x73/0x990
+[Mon Sep 28 20:06:36 2026]  ? handle_mm_fault+0xc3/0x2c0
+[Mon Sep 28 20:06:36 2026]  ? do_user_addr_fault+0x179/0x710
+[Mon Sep 28 20:06:36 2026]  ? irqentry_exit+0x3f/0x50
+[Mon Sep 28 20:06:36 2026]  ? exc_page_fault+0x7f/0x170
+[Mon Sep 28 20:06:36 2026]  entry_SYSCALL_64_after_hwframe+0x76/0x7e
+[Mon Sep 28 20:06:36 2026] RIP: 0033:0x7312b4d1a9cf
+[Mon Sep 28 20:06:36 2026] Code: 00 48 89 44 24 18 31 c0 48 8d 44 24 60 c7 04 24 10 00 00 00 48 89 44 24 08 48 8d 44 24 20 48 89 44 24 10 b8 10 00 00 00 0f 05 <41> 89 c0 3d 00 f0 ff ff 77 1f 48 8b 44 24 18 64 48 2b 04 25 28 00
+[Mon Sep 28 20:06:36 2026] RSP: 002b:000073126c979d70 EFLAGS: 00000246 ORIG_RAX: 0000000000000010
+[Mon Sep 28 20:06:36 2026] RAX: ffffffffffffffda RBX: 000073126c979e30 RCX: 00007312b4d1a9cf
+[Mon Sep 28 20:06:36 2026] RDX: 000073126c979df0 RSI: 00000000c0184736 RDI: 0000000000000007
+[Mon Sep 28 20:06:36 2026] RBP: 000073126c97a080 R08: 0000000000000001 R09: 0000000000000400
+[Mon Sep 28 20:06:36 2026] R10: 0000000000000001 R11: 0000000000000246 R12: 000073125814a760
+[Mon Sep 28 20:06:36 2026] R13: 000073125814c980 R14: 0000000000000001 R15: 00000000deadbeef
+[Mon Sep 28 20:06:36 2026]  </TASK>
+[Mon Sep 28 20:06:36 2026] ---[ end trace 0000000000000000 ]---
+[Mon Sep 28 20:16:32 2026] faux_driver regulatory: Direct firmware load for regulatory.db failed with error -2
+[Mon Sep 28 20:16:33 2026] block sda: the capability attribute has been deprecated.
+
+$ journalctl -p err -b --no-pager -n 30
+Sep 28 20:06:27 cloud-badger kernel: PCI: Fatal: No config space access function found
+Sep 28 20:06:27 cloud-badger kernel: misc dxg: dxgk: dxgkio_is_feature_enabled: Ioctl failed: -22
+Sep 28 20:06:27 cloud-badger kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+Sep 28 20:06:27 cloud-badger kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+Sep 28 20:06:27 cloud-badger kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+Sep 28 20:06:27 cloud-badger kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+Sep 28 20:06:27 cloud-badger kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+Sep 28 20:06:27 cloud-badger kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+Sep 28 20:06:27 cloud-badger kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+Sep 28 20:06:27 cloud-badger kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+Sep 28 20:06:36 cloud-badger unknown: WSL (238) ERROR: CheckConnection: getaddrinfo() failed: -5
+Sep 28 20:06:36 cloud-badger kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+
+$ systemctl --failed --no-pager
+  UNIT LOAD ACTIVE SUB DESCRIPTION
+0 loaded units listed.
+
+==================== SUMMARY ====================
+Host: cloud-badger | Cores: 24 | Sample: 5s | 2026-09-28 20:28:42
+[CRIT] Filesystem nearly full: /snap/bare/5 (100%). Next: du -xh --max-depth=2 <mount> | sort -h | tail
+[CRIT] Filesystem nearly full: /snap/bun-js/73 (100%). Next: du -xh --max-depth=2 <mount> | sort -h | tail
+[CRIT] Filesystem nearly full: /snap/bun-js/87 (100%). Next: du -xh --max-depth=2 <mount> | sort -h | tail
+[CRIT] Filesystem nearly full: /snap/core20/2582 (100%). Next: du -xh --max-depth=2 <mount> | sort -h | tail
+[CRIT] Filesystem nearly full: /snap/core20/2599 (100%). Next: du -xh --max-depth=2 <mount> | sort -h | tail
+[CRIT] Filesystem nearly full: /snap/core22/2010 (100%). Next: du -xh --max-depth=2 <mount> | sort -h | tail
+[CRIT] Filesystem nearly full: /snap/core22/2045 (100%). Next: du -xh --max-depth=2 <mount> | sort -h | tail
+[CRIT] Filesystem nearly full: /snap/core24/1349 (100%). Next: du -xh --max-depth=2 <mount> | sort -h | tail
+[CRIT] Filesystem nearly full: /snap/gtk-common-themes/1535 (100%). Next: du -xh --max-depth=2 <mount> | sort -h | tail
+[CRIT] Filesystem nearly full: /snap/core24/1643 (100%). Next: du -xh --max-depth=2 <mount> | sort -h | tail
+[CRIT] Filesystem nearly full: /snap/kubectx/48 (100%). Next: du -xh --max-depth=2 <mount> | sort -h | tail
+[CRIT] Filesystem nearly full: /snap/snapd/24505 (100%). Next: du -xh --max-depth=2 <mount> | sort -h | tail
+[CRIT] Filesystem nearly full: /snap/snapd/24718 (100%). Next: du -xh --max-depth=2 <mount> | sort -h | tail
+[CRIT] Filesystem nearly full: /snap/ubuntu-desktop-installer/1276 (100%). Next: du -xh --max-depth=2 <mount> | sort -h | tail
+[CRIT] Filesystem nearly full: /snap/ubuntu-desktop-installer/1286 (100%). Next: du -xh --max-depth=2 <mount> | sort -h | tail
+[CRIT] Inodes nearly exhausted: /snap/bare/5 (100%). Next: find <mount> -xdev -type f | cut -d/ -f1-4 | sort | uniq -c | sort -n | tail
+[CRIT] Inodes nearly exhausted: /snap/bun-js/73 (100%). Next: find <mount> -xdev -type f | cut -d/ -f1-4 | sort | uniq -c | sort -n | tail
+[CRIT] Inodes nearly exhausted: /snap/bun-js/87 (100%). Next: find <mount> -xdev -type f | cut -d/ -f1-4 | sort | uniq -c | sort -n | tail
+[CRIT] Inodes nearly exhausted: /snap/core20/2582 (100%). Next: find <mount> -xdev -type f | cut -d/ -f1-4 | sort | uniq -c | sort -n | tail
+[CRIT] Inodes nearly exhausted: /snap/core20/2599 (100%). Next: find <mount> -xdev -type f | cut -d/ -f1-4 | sort | uniq -c | sort -n | tail
+[CRIT] Inodes nearly exhausted: /snap/core22/2010 (100%). Next: find <mount> -xdev -type f | cut -d/ -f1-4 | sort | uniq -c | sort -n | tail
+[CRIT] Inodes nearly exhausted: /snap/core22/2045 (100%). Next: find <mount> -xdev -type f | cut -d/ -f1-4 | sort | uniq -c | sort -n | tail
+[CRIT] Inodes nearly exhausted: /snap/core24/1349 (100%). Next: find <mount> -xdev -type f | cut -d/ -f1-4 | sort | uniq -c | sort -n | tail
+[CRIT] Inodes nearly exhausted: /snap/gtk-common-themes/1535 (100%). Next: find <mount> -xdev -type f | cut -d/ -f1-4 | sort | uniq -c | sort -n | tail
+[CRIT] Inodes nearly exhausted: /snap/core24/1643 (100%). Next: find <mount> -xdev -type f | cut -d/ -f1-4 | sort | uniq -c | sort -n | tail
+[CRIT] Inodes nearly exhausted: /snap/kubectx/48 (100%). Next: find <mount> -xdev -type f | cut -d/ -f1-4 | sort | uniq -c | sort -n | tail
+[CRIT] Inodes nearly exhausted: /snap/snapd/24505 (100%). Next: find <mount> -xdev -type f | cut -d/ -f1-4 | sort | uniq -c | sort -n | tail
+[CRIT] Inodes nearly exhausted: /snap/snapd/24718 (100%). Next: find <mount> -xdev -type f | cut -d/ -f1-4 | sort | uniq -c | sort -n | tail
+[CRIT] Inodes nearly exhausted: /snap/ubuntu-desktop-installer/1276 (100%). Next: find <mount> -xdev -type f | cut -d/ -f1-4 | sort | uniq -c | sort -n | tail
+[CRIT] Inodes nearly exhausted: /snap/ubuntu-desktop-installer/1286 (100%). Next: find <mount> -xdev -type f | cut -d/ -f1-4 | sort | uniq -c | sort -n | tail
+[WARN] TCP retransmit ratio 2.12% since boot (packet loss or congestion). Next: ss -ti, mtr <host>
+[INFO] Interface br-25ecf719c824 has 2 cumulative errors/drops since boot. Next: ip -s link show br-25ecf719c824, ethtool -S br-25ecf719c824
+[INFO] Interface br-7ebaee5e8353 has 2 cumulative errors/drops since boot. Next: ip -s link show br-7ebaee5e8353, ethtool -S br-7ebaee5e8353
+[INFO] Interface docker0 has 2 cumulative errors/drops since boot. Next: ip -s link show docker0, ethtool -S docker0
+Full report: ./perf-report-cloud-badger-20260928-202837/report.txt

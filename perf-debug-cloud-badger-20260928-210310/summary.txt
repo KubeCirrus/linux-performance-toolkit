@@ -1,0 +1,11 @@
+Linux Performance Diagnostic
+============================
+Hostname : cloud-badger
+Date     : Mon Sep 28 21:03:10 IST 2026
+Kernel   : 6.18.33.2-microsoft-standard-WSL2
+Output   : ./perf-debug-cloud-badger-20260928-210310
+
+CPU: \033[1;33m[WARN]\033[0m
+CPU usage: -418%
+Load: 0.01/24
+I/O wait: 300%

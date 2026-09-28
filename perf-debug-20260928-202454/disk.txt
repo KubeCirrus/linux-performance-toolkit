@@ -1,0 +1,71 @@
+===== DISK =====
+Filesystem      Size  Used Avail Use% Mounted on
+none            3.9G     0  3.9G   0% /usr/lib/modules/6.18.33.2-microsoft-standard-WSL2
+none            3.9G  4.0K  3.9G   1% /mnt/wsl
+drivers         953G  349G  605G  37% /usr/lib/wsl/drivers
+/dev/sdd       1007G   34G  923G   4% /
+none            3.9G   44K  3.9G   1% /mnt/wslg
+none            3.9G     0  3.9G   0% /usr/lib/wsl/lib
+rootfs          3.9G  2.8M  3.8G   1% /init
+none            3.9G  980K  3.9G   1% /run
+none            3.9G     0  3.9G   0% /run/lock
+none            3.9G     0  3.9G   0% /run/shm
+none            3.9G   80K  3.9G   1% /mnt/wslg/versions.txt
+none            3.9G   80K  3.9G   1% /mnt/wslg/doc
+C:\             953G  349G  605G  37% /mnt/c
+snapfuse        128K  128K     0 100% /snap/bare/5
+snapfuse         31M   31M     0 100% /snap/bun-js/73
+snapfuse         31M   31M     0 100% /snap/bun-js/87
+snapfuse         64M   64M     0 100% /snap/core20/2582
+snapfuse         64M   64M     0 100% /snap/core20/2599
+snapfuse         74M   74M     0 100% /snap/core22/2010
+snapfuse         74M   74M     0 100% /snap/core22/2045
+snapfuse         67M   67M     0 100% /snap/core24/1349
+snapfuse         92M   92M     0 100% /snap/gtk-common-themes/1535
+snapfuse         67M   67M     0 100% /snap/core24/1643
+snapfuse        8.3M  8.3M     0 100% /snap/kubectx/48
+snapfuse         51M   51M     0 100% /snap/snapd/24505
+snapfuse         51M   51M     0 100% /snap/snapd/24718
+snapfuse        132M  132M     0 100% /snap/ubuntu-desktop-installer/1276
+snapfuse        132M  132M     0 100% /snap/ubuntu-desktop-installer/1286
+tmpfs           780M  8.0K  780M   1% /run/user/0
+
+Filesystem       Inodes   IUsed    IFree IUse% Mounted on
+none             998102       5   998097    1% /usr/lib/modules/6.18.33.2-microsoft-standard-WSL2
+none             998102       2   998100    1% /mnt/wsl
+drivers             999 -999001  1000000     - /usr/lib/wsl/drivers
+/dev/sdd       67108864  349579 66759285    1% /
+none             998102      23   998079    1% /mnt/wslg
+none             998102       6   998096    1% /usr/lib/wsl/lib
+rootfs           996662      12   996650    1% /init
+none             998102     624   997478    1% /run
+none             998102       2   998100    1% /run/lock
+none             998102       1   998101    1% /run/shm
+none             998102      52   998050    1% /mnt/wslg/versions.txt
+none             998102      52   998050    1% /mnt/wslg/doc
+C:\                 999 -999001  1000000     - /mnt/c
+snapfuse             29      29        0  100% /snap/bare/5
+snapfuse             10      10        0  100% /snap/bun-js/73
+snapfuse             10      10        0  100% /snap/bun-js/87
+snapfuse          11901   11901        0  100% /snap/core20/2582
+snapfuse          11901   11901        0  100% /snap/core20/2599
+snapfuse          14261   14261        0  100% /snap/core22/2010
+snapfuse          14263   14263        0  100% /snap/core22/2045
+snapfuse          10642   10642        0  100% /snap/core24/1349
+snapfuse          76208   76208        0  100% /snap/gtk-common-themes/1535
+snapfuse          10545   10545        0  100% /snap/core24/1643
+snapfuse              8       8        0  100% /snap/kubectx/48
+snapfuse            608     608        0  100% /snap/snapd/24505
+snapfuse            608     608        0  100% /snap/snapd/24718
+snapfuse           8605    8605        0  100% /snap/ubuntu-desktop-installer/1276
+snapfuse           8574    8574        0  100% /snap/ubuntu-desktop-installer/1286
+tmpfs            199620      33   199587    1% /run/user/0
+
+NAME MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+sda    8:0    0 356.9M  1 disk 
+sdb    8:16   0 159.4M  1 disk 
+sdc    8:32   0     2G  0 disk [SWAP]
+sdd    8:48   0     1T  0 disk /var/lib/docker
+                               /snap
+                               /mnt/wslg/distro
+                               /
